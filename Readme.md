@@ -66,4 +66,4 @@ func (n *Node) writeLogToFile() {
 }
 ```
 ## Acknowledgment
-This implementation is part of a learning project based on concepts from system design literature. The code is written in Go for familiarity with the language.
+This implementation is part of a learning project aimed at applying concepts learned from the system design literature. The code is specifically written in Go to gain a deeper familiarity with the language and to practically implement various design principles discussed in the system design book."
