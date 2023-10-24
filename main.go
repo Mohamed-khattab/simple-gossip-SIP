@@ -111,7 +111,7 @@ func (n *Node) writeLogToFile() {
 	logsFolder := "logs"
 	// check if the logs folder is found : create if not
 	if _, err := os.Stat(logsFolder); os.IsNotExist(err) {
-		err = os.Mkdir(logsFolder, os.ModePerm)
+		err = os.Mkdir(logsFolder, os.ModePerm) // create a logs folder with initial permissions
 		if err != nil {
 			log.Fatalf("Error creating logs folder: %v", err)
 		}
