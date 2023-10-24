@@ -107,7 +107,16 @@ func (n *Node) HandleUnresponsiveNode(unresponsiveNodeID int) {
 }
 
 func (n *Node) writeLogToFile() {
-	logFileName := fmt.Sprintf("node%d.log", n.ID)
+	logsFolder := "logs"
+	// check if the logs folder is found : create if not
+	if _, err := os.Stat(logsFolder); os.IsNotExist(err) {
+		err = os.Mkdir(logsFolder, os.ModePerm)
+		if err != nil {
+			log.Fatalf("Error creating logs folder: %v", err)
+		}
+	}
+	
+	logFileName := fmt.Sprintf("/%s/node%d.log", logsFolder, n.ID)
 	file, err := os.Create(logFileName)
 	if err != nil {
 		log.Fatalf("Error creating log file for Node %d: %v", n.ID, err)
