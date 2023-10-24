@@ -2,7 +2,7 @@
 
 ## Overview
 
-This Go program simulates a gossip algorithm for communication between nodes in a distributed system. The implementation, inspired by system design principles, introduces features such as dynamic gossip intervals, simulated network delays, and handling unresponsive nodes.
+This Go program simulates a gossip algorithm for communication between nodes in a distributed system. The implementation, inspired by `system design principles book`, introduces features such as dynamic gossip intervals, simulated network delays, and handling unresponsive nodes.
 
 ## Node Structure
 
@@ -38,3 +38,32 @@ type Node struct {
      // ... (see code)
  }
  ```
+## Handling Unresponsive Nodes
+The system can handle unresponsive nodes by notifying other peers and implementing a method to handle notifications.
+
+```go
+func (n *Node) notifyPeersAboutUnresponsiveNode(unresponsiveNodeID int) {
+    // ... (see code)
+}
+
+func (n *Node) HandleUnresponsiveNode(unresponsiveNodeID int) {
+    // ... (see code)
+}
+```
+## Main Function
+The main function orchestrates the simulation, loading environment variables, creating nodes, establishing peer connections, and simulating gossiping over a specified duration.
+```go 
+func main() {
+    // ... (see code)
+} ```
+
+## Logging
+The writeLogToFile method writes the gossip log for each node to an external file.
+
+```go
+func (n *Node) writeLogToFile() {
+    // ... (see code)
+}
+```
+## Acknowledgment
+This implementation is part of a learning project based on concepts from system design literature. The code is written in Go for familiarity with the language.
