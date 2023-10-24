@@ -6,6 +6,7 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"path/filepath"
 	"strconv"
 	"sync"
 	"time"
@@ -115,8 +116,8 @@ func (n *Node) writeLogToFile() {
 			log.Fatalf("Error creating logs folder: %v", err)
 		}
 	}
-	
-	logFileName := fmt.Sprintf("/%s/node%d.log", logsFolder, n.ID)
+
+	logFileName := filepath.Join(logsFolder, fmt.Sprintf("node%d.log", n.ID))
 	file, err := os.Create(logFileName)
 	if err != nil {
 		log.Fatalf("Error creating log file for Node %d: %v", n.ID, err)
